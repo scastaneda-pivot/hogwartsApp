@@ -1,4 +1,8 @@
-const arrayOfStudents = []
+const merchandiseArray = [
+  {
+    type: 'hat',
+  },
+]
 
 const hideJumbo = () => {
   document.getElementById('myJumbo').classList.add('invisible');
@@ -12,9 +16,8 @@ const sortStudent = () => {
   let houseNumber = Math.floor(Math.random()*randomHouse.length)
   let id = Math.random().toString(36).substring(2, 8)
   arrayOfStudents.push({name, id})
-  studentPrinter(arrayOfStudents)
+  // studentPrinter(merchandiseArray)
 }
-
 document.getElementById('sortButton').addEventListener('click', sortStudent)
 
 const printToDom = (divId, textToPrint) => {
@@ -23,10 +26,14 @@ const printToDom = (divId, textToPrint) => {
 };
 
 
-const studentPrinter = (arrayOfStudents) => {
+const studentPrinter = (merchandiseArray) => {
 let domString = '';
-for (let i = 0; i < arrayOfStudents.length; i++) {
-  domString += `<h1>${arrayOfStudents[i].name}</h1>`;
+for (let i = 0; i < merchandiseArray.length; i++) {
+  domString += `<h1>${merchandiseArray[i].type}</h1>`;
 }
 printToDom('allStudents', domString)
+};
+
+const merchInit = () => {
+  studentPrinter(merchandiseArray);
 };
